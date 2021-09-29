@@ -19,7 +19,7 @@ class Manticoresearch < Formula
   depends_on "postgresql" => :build
   depends_on "openssl@1.1"
 
-  conflicts_with "sphinx", because: "manticoresearch is a fork of sphinx"
+  conflicts_with "sphinx", because: "Manticore Search is a fork of Sphinx"
 
   def install
     args = %W[
