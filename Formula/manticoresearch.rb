@@ -1,7 +1,7 @@
 class Manticoresearch < Formula
   desc "Open source database for search"
   homepage "https://www.manticoresearch.com"
-  url "https://repo.manticoresearch.com/repository/manticoresearch_source/release/manticore-4.2.0-211223-15e927b28-release-source.tar.gz"
+  url "https://repo.manticoresearch.com/repository/manticoresearch_source/release/manticore-4.2.0.tar.gz"
   sha256 "da2c3af17e62960244a536c3767a2978d36bec3d403293e4f51a4a6718e9c2cb"
   license "GPL-2.0-only"
   version_scheme 1
