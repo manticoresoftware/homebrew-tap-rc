@@ -7,10 +7,8 @@ class Manticoresearch < Formula
   version_scheme 1
 
   bottle do
-    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticoresearch-4.0.2"
-    rebuild 2
-    sha256 big_sur:  "41cfb3ee3e282b7af66186e10eba83adb2ecf2ef99a32b4a8e0bf51eba1562bd"
-    sha256 catalina: "b1d13d52f138077ef626a40991c2fa06730d8c154ba49cda950e18ca66d52e00"
+    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticoresearch-4.2.0"
+    sha256 big_sur: "c93e728ffe3a359d55c4a776754ca96cb9ed712d7bb8d6f4f34936ded3547d02"
   end
 
   depends_on "boost" => :build
