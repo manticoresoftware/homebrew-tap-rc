@@ -7,7 +7,7 @@ class Manticoresearch < Formula
   version_scheme 1
 
   bottle do
-    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticoresearch-211223-15"
+    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticoresearch-4.2.0"
     sha256 big_sur: "78d690398bcde0eae13a68e668a8c0094ef56531a66b1b538d6c19df8148daa3"
   end
 
