@@ -1,5 +1,5 @@
 class Manticoreexecutor < Formula
-  desc "Custom build PHP for launching scripts of Manticore"
+  desc "Custom built PHP to run misc scripts of Manticore"
   homepage "https://github.com/manticoresoftware/executor"
   url "https://github.com/manticoresoftware/executor/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "ba47ed71767e942001861112bfb04b9470a728ec607c40dcf9866597cdb17633"
