@@ -1,10 +1,10 @@
 class ManticoreColumnarLib < Formula
-  desc "Manticore Columnar Library is a column-oriented storage library, aiming to provide decent performance with low memory footprint at big data volume. When used in combination with Manticore Search can be beneficial for faster / lower resource consumption log/metrics analytics and running log / metric analytics in docker / kubernetes"
-  version "1.15.5"
+  desc "Column-oriented storage library"
   homepage "https://github.com/manticoresoftware/columnar/"
-  url "https://github.com/manticoresoftware/columnar/archive/master.tar.gz"
+  version "1.15.5"
+  url "https://github.com/manticoresoftware/columnar/archive/1.15.5.tar.gz"
   sha256 "5263a6c172eda56ad5aa3ae748c61c6b3fd7a8f82dab36357200a23bcf0840dd"
-  license "Apache2.0"
+  license "Apache-2.0"
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
