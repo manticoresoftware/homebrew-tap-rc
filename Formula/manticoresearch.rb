@@ -11,6 +11,7 @@ class Manticoresearch < Formula
     rebuild 1
     sha256 monterey: "03cb693d15a62d78d4913fb35e2bd6c987fe42875c3e2b1be4a54bee7bc4e8de"
     sha256 big_sur:  "169a865e9664f19e6078e0569542703a193c0837a9340e83ab860627f81179ef"
+    sha256 catalina: "a9fb628b2bee4c2390368d4a2593b200f0c509e74b41b441fe349e692a7945a2"
   end
 
   depends_on "boost" => :build
