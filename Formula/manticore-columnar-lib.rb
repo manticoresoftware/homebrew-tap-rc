@@ -7,9 +7,8 @@ class ManticoreColumnarLib < Formula
 
   bottle do
     root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticore-columnar-lib-1.16.1"
-    sha256 cellar: :any_skip_relocation, monterey: "f742e1d2ad34656f1dd71cb320894a3ad99deba462c8089ee89d174ece1bd5f7"
-    sha256 cellar: :any_skip_relocation, big_sur:  "44a0a4dc86cdaee6ee5a8441cb2afb9e809a7262141faf4720223883f42730e7"
-    sha256 cellar: :any_skip_relocation, catalina: "e26b64d3868b8f89d968f5344066646bbd5911b3de73a4bf30e424103c003bc2"
+    sha256 cellar: :any_skip_relocation, monterey: "66d91f270ed6d61d229a55eb729210b9787b87b0c78db9e2cafe94c6bf466fc5"
+    sha256 cellar: :any_skip_relocation, big_sur:  "62b4870f60aa6c369f14655ff8cff32df4e34eb3675cfb4475edd9398f198e4d"
   end
 
   depends_on "boost" => :build
