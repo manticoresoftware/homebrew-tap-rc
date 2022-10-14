@@ -6,8 +6,8 @@ class ManticoreBackup < Formula
 
   bottle do
     root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticore-backup-0.2.19"
-    sha256 cellar: :any_skip_relocation, monterey: "d98ccdeca65077a6824d7abc27adf655dea7f4e1f063efa171cdf7e94ae90b42"
-    sha256 cellar: :any_skip_relocation, big_sur:  "ad03f485ab31811e3891b75839f97aff23b0727e41240fe7ec0269582f37d15a"
+    sha256 cellar: :any_skip_relocation, monterey: "9272dd256b016e957d19ea7eca73bf1e7c6a6dac4da509ac6ee7ace23c574a20"
+    sha256 cellar: :any_skip_relocation, big_sur:  "692bf7bbb471c1fd7ec90781d68f48a31d5753ceefbd64da580beda39117b715"
   end
 
   depends_on "php" => :build
