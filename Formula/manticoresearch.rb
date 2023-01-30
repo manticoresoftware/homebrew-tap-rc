@@ -13,9 +13,9 @@ class Manticoresearch < Formula
     sha256 big_sur:  "f2a33aac834ad27afa24b5ad840ef57eb824ec43b02ba7acafe225db704dfaa7"
   end
 
-  depends_on "postgresql@14" => :build
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  depends_on "postgresql@14" => :build
   depends_on "icu4c"
   depends_on "libpq"
   depends_on "mysql-client"
