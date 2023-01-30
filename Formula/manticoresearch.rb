@@ -8,9 +8,9 @@ class Manticoresearch < Formula
   head "https://github.com/manticoresoftware/manticoresearch.git"
 
   bottle do
-    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticoresearch-5.0.3-2023012600-6ffa0d1"
-    sha256 monterey: "f5fbc1be5510b59bbb7d8c3b40e8b306fb1279d912bf792686da723872548c5f"
-    sha256 big_sur:  "f2a33aac834ad27afa24b5ad840ef57eb824ec43b02ba7acafe225db704dfaa7"
+    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticoresearch-5.0.3-2023013021-833705a"
+    sha256 monterey: "e0e3eab002f6de77f7e1afc202bfdc9437e7a19380aabf04c284936f08e69db1"
+    sha256 big_sur:  "598c1c4487e7b1e0cfdb42be1edf6381427e3b661748eb70ae69eda4724786e2"
   end
 
   depends_on "boost" => :build
