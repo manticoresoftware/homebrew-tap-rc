@@ -13,12 +13,12 @@ class Manticoresearch < Formula
     sha256 big_sur:  "f2a33aac834ad27afa24b5ad840ef57eb824ec43b02ba7acafe225db704dfaa7"
   end
 
+  depends_on "postgresql@14" => :build
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "icu4c"
   depends_on "libpq"
   depends_on "mysql-client"
-  depends_on "postgresql@14" => :build
   depends_on "openssl@1.1"
   depends_on "unixodbc"
   depends_on "zstd"
@@ -53,7 +53,7 @@ class Manticoresearch < Formula
   def post_install
     (var/"run/manticore").mkpath
     (var/"log/manticore").mkpath
-    (var/"manticore/data").mkpath
+    (var/"manticore").mkpath
 
     # Fix old config path (actually it was always wrong and never worked; however let's check)
     mv etc/"manticore/manticore.conf", etc/"manticoresearch/manticore.conf" if (etc/"manticore/manticore.conf").exist?
