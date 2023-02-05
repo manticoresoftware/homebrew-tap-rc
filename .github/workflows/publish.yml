@@ -11,6 +11,13 @@ jobs:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
+      - name: Change the base branch
+        run: |
+          set -e
+          cd /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/$GITHUB_REPOSITORY
+          git checkout ${{ github.base_ref }}
+        shell: bash
+
       - name: Set up git
         uses: Homebrew/actions/git-user-config@master
 
@@ -20,15 +27,11 @@ jobs:
           PULL_REQUEST: ${{ github.event.pull_request.number }}
         run: brew pr-pull --debug --no-autosquash --tap=$GITHUB_REPOSITORY $PULL_REQUEST
 
-      - id: vars
-        run: |
-          echo "::set-output name=target_branch::$(echo ${{ github.base_ref}}  | cut -d/ -f3)"
-
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
           token: ${{ github.token }}
-          branch: ${{ steps.vars.outputs.target_branch }}
+          branch: ${{ github.base_ref }}
 
       - name: Delete branch
         if: github.event.pull_request.head.repo.fork == false
