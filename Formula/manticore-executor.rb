@@ -7,6 +7,12 @@ class ManticoreExecutor < Formula
   version_scheme 1
   head "https://github.com/manticoresoftware/executor.git"
 
+  bottle do
+    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticore-executor-0.6.2-2023020620-d95e43e"
+    sha256 monterey: "bc994b626e0c1fa8746bdc15e7a0a0b41dcb8e810db8e07aff3d8d65f8cc04b4"
+    sha256 big_sur:  "b9c69e730cbfe2099935a1f1c0e15bc0cf4892db81bf2312fc4dc4e54c5a3d5b"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "bison" => :build
