@@ -9,6 +9,12 @@ class ManticoreBuddy < Formula
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch-buddy.git"
 
+  bottle do
+    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticore-buddy-0.3.4-2023020620-4798582"
+    sha256 cellar: :any_skip_relocation, monterey: "80137b6726afe1a121cfdb5cd9e138cb98e861d23145c8a74148e8735d0625c4"
+    sha256 cellar: :any_skip_relocation, big_sur:  "0d85cda0794d4e01ee4efc8553f4fb8fcb9efb15f00a90ed4d0ff1e4e5c03acc"
+  end
+
   depends_on "composer" => :build
   depends_on "php" => :build
   depends_on "php" => :test
