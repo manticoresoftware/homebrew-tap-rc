@@ -14,8 +14,8 @@ class ManticoreExtra < Formula
     sha256 cellar: :any_skip_relocation, big_sur:  "02da22f79505cea4cd1bd155aba5a86544695ad458b6cc322e1fea8ebbc63c57"
   end
 
-  depends_on "manticoresoftware/manticore/manticore-columnar-lib"
-  depends_on "manticoresoftware/manticore/manticore-executor"
+  depends_on "manticoresoftware/rc/manticore-columnar-lib"
+  depends_on "manticoresoftware/rc/manticore-executor"
 
   def install
     File.open("manticore-extra", "w") do |file|
