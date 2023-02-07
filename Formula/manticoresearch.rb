@@ -7,6 +7,12 @@ class Manticoresearch < Formula
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git"
 
+  bottle do
+    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticoresearch-6.0.0-2023020711-8de9df2"
+    sha256 monterey: "faafa4e12b42c95d4b7956490ffdf66ac887e49b65cf353568bca24b3f69ff3a"
+    sha256 big_sur:  "ecd662a027f47d856031771bb834660376b70061e6b416e5ce86e48460c0930a"
+  end
+
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "icu4c"
