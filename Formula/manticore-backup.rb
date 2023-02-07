@@ -7,6 +7,12 @@ class ManticoreBackup < Formula
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch-backup.git"
 
+  bottle do
+    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticore-backup-0.5.2-2023020711-4a37932"
+    sha256 cellar: :any_skip_relocation, monterey: "be6e2a7e6e73411a1fc461da37fb55e0681589435dde056ef3ae42ab96b75da9"
+    sha256 cellar: :any_skip_relocation, big_sur:  "5309309018cfdba911ef20aa4fdfac018ca7a9ec03e94aa3b87ddaf5f8107648"
+  end
+
   depends_on "composer" => :build
   depends_on "php" => :build
   depends_on "php" => :test
