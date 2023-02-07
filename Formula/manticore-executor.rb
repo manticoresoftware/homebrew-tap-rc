@@ -9,8 +9,9 @@ class ManticoreExecutor < Formula
 
   bottle do
     root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticore-executor-0.6.2-2023020711-d95e43e"
-    sha256 monterey: "514924bf39e88751f4542599f1f1f17ab109728b6c0129b8aefc793a7f754a23"
-    sha256 big_sur:  "d8afb8258aa4569cbe228198ad88a9c35c134d6f2ec5cbfdf5b1ffa7e1e2e110"
+    sha256 arm64_ventura: "dc36898275ae685a96459e2a544b0ea9bb3d7c9884ebb1fcbc1022e91aeb37b6"
+    sha256 monterey:      "514924bf39e88751f4542599f1f1f17ab109728b6c0129b8aefc793a7f754a23"
+    sha256 big_sur:       "d8afb8258aa4569cbe228198ad88a9c35c134d6f2ec5cbfdf5b1ffa7e1e2e110"
   end
 
   depends_on "autoconf" => :build
