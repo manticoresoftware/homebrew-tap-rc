@@ -9,8 +9,9 @@ class Manticoresearch < Formula
 
   bottle do
     root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticoresearch-6.0.0-2023020711-8de9df2"
-    sha256 monterey: "faafa4e12b42c95d4b7956490ffdf66ac887e49b65cf353568bca24b3f69ff3a"
-    sha256 big_sur:  "ecd662a027f47d856031771bb834660376b70061e6b416e5ce86e48460c0930a"
+    sha256 arm64_ventura: "0d2b8453f60de3453c0a3f0ba0747bc9c2a520695989b1ea84a491e735658313"
+    sha256 monterey:      "faafa4e12b42c95d4b7956490ffdf66ac887e49b65cf353568bca24b3f69ff3a"
+    sha256 big_sur:       "ecd662a027f47d856031771bb834660376b70061e6b416e5ce86e48460c0930a"
   end
 
   depends_on "boost" => :build
@@ -21,8 +22,8 @@ class Manticoresearch < Formula
   depends_on "openssl@1.1"
   depends_on "unixodbc"
   depends_on "zstd"
-  depends_on "manticoresoftware/rc/manticore-backup" => :recommended
-  depends_on "manticoresoftware/rc/manticore-buddy" => :recommended
+  depends_on "manticoresoftware/manticore/manticore-backup" => :recommended
+  depends_on "manticoresoftware/manticore/manticore-buddy" => :recommended
 
   conflicts_with "sphinx", because: "manticore is a fork of sphinx"
 
