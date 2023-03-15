@@ -3,8 +3,8 @@ require "fileutils"
 class ManticoreBuddy < Formula
   desc "Manticore Search's sidecar which helps it with various tasks"
   homepage "https://github.com/manticoresoftware/manticoresearch-buddy"
-  url "https://github.com/manticoresoftware/manticoresearch-buddy.git", branch: "0.3.4", revision: "4798582904f6c64a6ebf7903094819e885b84481"
-  version "0.3.4-2023020711-4798582"
+  url "https://github.com/manticoresoftware/manticoresearch-buddy.git", branch: "0.4.2", revision: "36757ee752d6bc4dbbf3edaf3b3555ac57eac526"
+  version "0.4.2-2023031314-36757ee"
   license "GPL-2.0"
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch-buddy.git"
