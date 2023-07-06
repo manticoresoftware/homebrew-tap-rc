@@ -43,11 +43,43 @@ class ManticoresearchDev < Formula
     (var/"manticore").mkpath
   end
 
-  service do
-    run [opt_bin/"searchd", "--config", etc/"manticoresearch/manticore.conf", "--nodetach"]
-    environment_variables PATH: std_service_path_env
-    keep_alive false
-    working_dir HOMEBREW_PREFIX
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/searchd</string>
+            <string>--config</string>
+            <string>#{etc}/manticoresearch/manticore.conf</string>
+            <string>--nodetach</string>
+          </array>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>PATH</key>
+            <string>#{HOMEBREW_PREFIX}/bin:#{HOMEBREW_PREFIX}/sbin</string>
+          </dict>
+          <key>KeepAlive</key>
+          <false/>
+          <key>WorkingDirectory</key>
+          <string>#{HOMEBREW_PREFIX}</string>
+          <key>SoftResourceLimits</key>
+          <dict>
+            <key>NumberOfFiles</key>
+            <integer>16384</integer>
+          </dict>
+          <key>HardResourceLimits</key>
+          <dict>
+            <key>NumberOfFiles</key>
+            <integer>65536</integer>
+          </dict>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
