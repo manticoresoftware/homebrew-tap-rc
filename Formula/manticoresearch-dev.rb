@@ -64,4 +64,17 @@ class ManticoresearchDev < Formula
     Process.kill(9, pid)
     Process.wait(pid)
   end
+
+  def caveats; <<~EOS
+    If you're facing an issue with "too many open files", you may need to adjust your
+    system's maxfiles limit. You can do this by executing the following command:
+
+    sudo launchctl limit maxfiles 16384 65536
+
+    Bear in mind, this will only establish the limit for the duration of your current
+    login session. If you want this adjustment to be permanent, you'll need to modify
+    your system's launchd configuration.
+    EOS
+  end
+
 end
