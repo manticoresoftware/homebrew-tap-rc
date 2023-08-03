@@ -12,7 +12,7 @@ class ManticoreBackupDev < Formula
   fetched_info = ManticoreHelper.fetch_version_and_url(
     'manticore-backup',
     base_url,
-    /(manticore-backup_)(\d+\.\d+\.\d+\-)(\d+\-)([\w]+)(\.tar\.gz)/
+    /(manticore-backup_)(\d+\.\d+\.\d+)(\-)(\d+\-)([\w]+)(\.tar\.gz)/
   )
 
   version fetched_info[:version]

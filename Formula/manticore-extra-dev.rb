@@ -11,7 +11,7 @@ class ManticoreExtraDev < Formula
   highest_version, highest_version_url = ManticoreHelper.find_version_and_url(
     'manticore-executor',
     base_url,
-    /(manticore-executor_)(\d+\.\d+\.\d+\-)(\d+\-)([\w]+)(_macos_amd64\.tar\.gz)/
+    /(manticore-executor_)(\d+\.\d+\.\d+)(\-)(\d+\-)([\w]+)(_macos_amd64\.tar\.gz)/
   )
   version "#{highest_version}"
 

@@ -11,7 +11,7 @@ class ManticoresearchDev < Formula
   fetched_info = ManticoreHelper.fetch_version_and_url(
     'manticoresearch',
     base_url,
-    /(manticore-)(\d+\.\d+\.\d+-)(\d+-)([\w]+)(-osx11\.6-#{arch}-main\.tar\.gz)/
+    /(manticore-)(\d+\.\d+\.\d+)(\-)(\d+-)([\w]+)(-osx11\.6-#{arch}-main\.tar\.gz)/
   )
 
   version fetched_info[:version]

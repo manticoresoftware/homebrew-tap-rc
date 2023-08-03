@@ -12,7 +12,7 @@ class ManticoreExecutorDev < Formula
   fetched_info = ManticoreHelper.fetch_version_and_url(
     'manticore-executor',
     base_url,
-    /(manticore-executor_)(\d+\.\d+\.\d+\-)(\d+\-)([\w]+)(_macos_#{arch}\.tar\.gz)/
+    /(manticore-executor_)(\d+\.\d+\.\d+)(\-)(\d+\-)([\w]+)(_macos_#{arch}\.tar\.gz)/
   )
 
   version fetched_info[:version]

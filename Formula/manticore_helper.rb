@@ -21,9 +21,10 @@ module ManticoreHelper
 
     content.scan(pattern) do |match|
       semver = match[1]
-      date = match[2]
-      hash_id = match[3]
-      versions << { semver: semver, date: date, hash_id: hash_id, file: "#{match[0]}#{semver}#{date}#{hash_id}#{match[4]}" }
+      separator = match[2]
+      date = match[3]
+      hash_id = match[4]
+      versions << { semver: Gem::Version.new(semver), separator: separator, date: date, hash_id: hash_id, file: "#{match[0]}#{semver}#{separator}#{date}#{hash_id}#{match[5]}" }
     end
 
     if versions.empty?
@@ -32,7 +33,7 @@ module ManticoreHelper
 
     versions.sort_by! { |v| [v[:semver], v[:date]] }.reverse!
 
-    highest_version = "#{versions.first[:semver]}#{versions.first[:date]}-#{versions.first[:hash_id]}"
+    highest_version = "#{versions.first[:semver]}#{versions.first[:separator]}#{versions.first[:date]}#{versions.first[:hash_id]}"
     highest_version_url = base_url + versions.first[:file]
 
     if highest_version.nil? || highest_version_url.nil?
