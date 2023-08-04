@@ -1,38 +1,36 @@
+require_relative 'manticore_helper'
+require 'hardware'
 require "fileutils"
 
 class ManticoreBuddy < Formula
   desc "Manticore Search's sidecar which helps it with various tasks"
   homepage "https://github.com/manticoresoftware/manticoresearch-buddy"
-  url "https://github.com/manticoresoftware/manticoresearch-buddy.git", branch: "0.4.2", revision: "36757ee752d6bc4dbbf3edaf3b3555ac57eac526"
-  version "0.4.2-2023031314-36757ee"
   license "GPL-2.0"
-  version_scheme 1
-  head "https://github.com/manticoresoftware/manticoresearch-buddy.git"
 
-  bottle do
-    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticore-buddy-0.4.2-2023031314-36757ee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a2e74071f1aeb5d760fbbc3c827aafe6233056857ea7b4d7a1604b0a8faf1f2"
-    sha256 cellar: :any_skip_relocation, monterey:      "98cb9cfe7b824b372fd2600bf71480f3cc31b82f927e849a1a1e51f0ea0c2fa4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "643469de80839c5a2b023d2b6241b80df09615c3666a43da9a5a2aa6bb897ae3"
-  end
+  arch = Hardware::CPU.arch
+  base_url = 'https://repo.manticoresearch.com/repository/manticoresearch_macos/release/'
+  fetched_info = ManticoreHelper.fetch_version_and_url(
+    'manticore-buddy',
+    base_url,
+    /(manticore-buddy_)(\d+\.\d+\.\d+)(_)(\d+\.)([\w]+)(\.tar\.gz)/
+  )
 
-  depends_on "composer" => :build
-  depends_on "php" => :build
-  depends_on "php" => :test
+  version fetched_info[:version]
+  url fetched_info[:file_url]
+  sha256 fetched_info[:sha256]
+
   depends_on "curl"
 
   def install
-    build_dir = `pwd`.strip + "/build"
-    system "git", "clone", "https://github.com/manticoresoftware/phar_builder.git"
-    system "./phar_builder/bin/build", "--name=\"Manticore Buddy\"", "--package=manticore-buddy",
-"--index=src/main.php"
-    dir = share
-    mkdir_p "#{dir}/manticore/modules"
-    mv "#{build_dir}/manticore-buddy", "#{dir}/manticore/modules/manticore-buddy"
+    (share/"manticore").mkpath
+    (share/"manticore/modules").mkpath
+    (lib/"manticore").mkpath
+    share.install "share/modules/manticore-buddy" => "manticore/modules/manticore-buddy"
+    share.install "bin" => "manticore/modules/manticore-buddy"
   end
 
   test do
-    dir = share
-    File.file? "#{dir}/manticore/modules/manticore-buddy"
+    File.file? "#{share}/manticore/modules/manticore-buddy/src/main.php"
+    File.file? "#{bin}/manticore-buddy"
   end
 end

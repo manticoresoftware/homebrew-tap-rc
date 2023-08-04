@@ -1,63 +1,46 @@
+require_relative 'manticore_helper'
+require 'hardware'
+
 class Manticoresearch < Formula
   desc "Open source database for search"
-  homepage "https://www.manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch.git", branch: "manticore-6.0.4", revision: "aba1e25ecbd1e4a0977a3f601b83e927007914f5"
-  version "6.0.4-2023031400-aba1e25ec"
+  homepage "https://manticoresearch.com"
   license "GPL-2.0"
-  version_scheme 1
-  head "https://github.com/manticoresoftware/manticoresearch.git"
 
-  bottle do
-    root_url "https://github.com/manticoresoftware/homebrew-manticore/releases/download/manticoresearch-6.0.4-2023031400-aba1e25ec"
-    sha256 arm64_ventura: "ff5f9bac56d0251cf90779251569345809fa225c2266259593aefe9bc269f052"
-    sha256 monterey:      "499f90059c641bffc00bd13b5e8e56f0080222792c58f42288758afcbdd3f8f0"
-    sha256 big_sur:       "82918f8c20dc50a4793b9339e89d2c795e08de25df681db9fc4ad2e7dd0eead1"
-  end
+  arch = Hardware::CPU.arch
+  base_url = 'https://repo.manticoresearch.com/repository/manticoresearch_macos/release/'
+  fetched_info = ManticoreHelper.fetch_version_and_url(
+    'manticoresearch',
+    base_url,
+    /(manticore-)(\d+\.\d+\.\d+)(\-)(\d+-)([\w]+)(-osx11\.6-#{arch}-main\.tar\.gz)/
+  )
 
-  depends_on "boost" => :build
-  depends_on "cmake" => :build
-  depends_on "icu4c"
+  version fetched_info[:version]
+  url fetched_info[:file_url]
+  sha256 fetched_info[:sha256]
+
   depends_on "libpq"
   depends_on "mysql-client"
   depends_on "openssl@1.1"
   depends_on "unixodbc"
   depends_on "zstd"
-  depends_on "manticoresoftware/manticore/manticore-backup" => :recommended
-  depends_on "manticoresoftware/manticore/manticore-buddy" => :recommended
+  depends_on "manticoresoftware/tap/manticore-backup" => :recommended
+  depends_on "manticoresoftware/tap/manticore-buddy" => :recommended
+  depends_on "manticoresoftware/tap/manticore-icudata" => :recommended
 
-  conflicts_with "sphinx", because: "manticore is a fork of sphinx"
-
-  fails_with gcc: "5"
+  conflicts_with "sphinx", because: "Manticore Search is a fork of Sphinxsearch"
 
   def install
-    ENV["ICU_ROOT"] = Formula["icu4c"].opt_prefix.to_s
-    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl"].opt_prefix.to_s
-    ENV["MYSQL_ROOT_DIR"] = Formula["mysql-client"].opt_prefix.to_s
-    ENV["PostgreSQL_ROOT"] = Formula["libpq"].opt_prefix.to_s
-
-    args = %W[
-      -DHOMEBREW_PREFIX=#{HOMEBREW_PREFIX}
-      -DDISTR_BUILD=homebrew
-      -DWITH_ICU_FORCE_STATIC=OFF
-      -D_LOCALSTATEDIR=#{var}
-      -D_RUNSTATEDIR=#{var}/run
-      -D_SYSCONFDIR=#{etc}
-    ]
-
-    mkdir "build" do
-      system "cmake", "-S", "..", "-B", "build", *std_cmake_args, *args
-      system "cmake", "--build", "build"
-      system "cmake", "--install", "build"
-    end
+    bin.install Dir["bin/*"]
+    man1.install Dir["share/doc/manticore/doc/*.1"]
+    share.install "share/manticore"
+    include.install "include/manticore"
+    etc.install "etc/manticoresearch"
   end
 
   def post_install
     (var/"run/manticore").mkpath
     (var/"log/manticore").mkpath
     (var/"manticore").mkpath
-
-    # Fix old config path (actually it was always wrong and never worked; however let's check)
-    mv etc/"manticore/manticore.conf", etc/"manticoresearch/manticore.conf" if (etc/"manticore/manticore.conf").exist?
   end
 
   service do
@@ -75,10 +58,23 @@ class Manticoresearch < Formula
       }
     EOS
     pid = fork do
-      exec bin/"searchd"
+      exec bin/"searchd", "--config", testpath/"manticore.conf"
     end
   ensure
     Process.kill(9, pid)
     Process.wait(pid)
   end
+
+  def caveats; <<~EOS
+    If you're facing an issue with "too many open files", you may need to adjust your
+    system's maxfiles limit. You can do this by executing the following command:
+
+    sudo launchctl limit maxfiles 16384 65536
+
+    Bear in mind, this will only establish the limit for the duration of your current
+    login session. If you want this adjustment to be permanent, you'll need to modify
+    your system's launchd configuration.
+    EOS
+  end
+
 end
