@@ -1,6 +1,6 @@
 require_relative 'manticore_helper'
 
-class ManticoreIcudataRcd < Formula
+class ManticoreIcudataRc < Formula
   desc "Chinese segmentation data file for Manticore Search"
   homepage "https://unicode-org.github.io/icu/userguide/icu_data/"
   version "65l"
