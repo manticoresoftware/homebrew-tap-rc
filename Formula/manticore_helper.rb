@@ -16,6 +16,8 @@ module ManticoreHelper
   end
 
   def self.find_version_and_url(formula_name, base_url, pattern)
+#    puts "Attempting to open URL: #{base_url}"
+
     content = URI.open(base_url).read
     versions = []
 
@@ -24,8 +26,11 @@ module ManticoreHelper
       separator = match[2]
       date = match[3]
       hash_id = match[4]
+
       versions << { semver: Gem::Version.new(semver), separator: separator, date: date, hash_id: hash_id, file: "#{match[0]}#{semver}#{separator}#{date}#{hash_id}#{match[5]}" }
     end
+
+#    puts "Found versions: #{versions}"
 
     if versions.empty?
       raise "Could not find versions by using provided URL and pattern"
@@ -35,6 +40,9 @@ module ManticoreHelper
 
     highest_version = "#{versions.first[:semver]}#{versions.first[:separator]}#{versions.first[:date]}#{versions.first[:hash_id]}"
     highest_version_url = base_url + versions.first[:file]
+
+#    puts "Highest version detected: #{highest_version}"
+#    puts "URL for the highest version: #{highest_version_url}"
 
     if highest_version.nil? || highest_version_url.nil?
       raise "Could not find version or URL for '#{formula_name}' with the given pattern: #{pattern}"
