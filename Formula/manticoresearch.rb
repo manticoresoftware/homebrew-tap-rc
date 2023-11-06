@@ -1,4 +1,3 @@
-require_relative 'manticore_helper'
 require 'hardware'
 
 class Manticoresearch < Formula
@@ -7,16 +6,9 @@ class Manticoresearch < Formula
   license "GPL-2.0"
 
   arch = Hardware::CPU.arch
-  base_url = 'https://repo.manticoresearch.com/repository/manticoresearch_macos/release/'
-  fetched_info = ManticoreHelper.fetch_version_and_url(
-    'manticoresearch',
-    base_url,
-    /(manticore-)(\d+\.\d+\.\d+)(\-)(\d+-)([\w]+)(-osx11\.6-#{arch}-main\.tar\.gz)/
-  )
-
-  version fetched_info[:version]
-  url fetched_info[:file_url]
-  sha256 fetched_info[:sha256]
+  url "https://repo.manticoresearch.com/repository/manticoresearch_macos/release/manticore-6.2.12-230822-dc5144d35-osx11.6-#{arch}-main.tar.gz"
+  version "6.2.12-230822-dc5144d35"
+  sha256 "826e7a486835bfc97dc5c8d7c4bd2afa582141cd64f68cc4f18b43924c2f9e22"
 
   depends_on "libpq"
   depends_on "mysql-client"
