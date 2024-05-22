@@ -12,7 +12,7 @@ class ManticoreColumnarLib < Formula
   if arch.to_s == "x86_64" || arch.to_s == "amd64"
     sha256 "2cbd0b7eb846208253f245ede729a42961f61d6a85adcbd78236c54f16ed0291"
   else
-    sha256 "6260eb089e9798d50a7a2b2b1bdf2d4df18c62f4a333479e29d47b49f8852532"
+    sha256 "4ced39a043b0239b2e4487fbc8e96f957ad6293f9db08566921fcbd1f424acb9"
   end
 
   def install
