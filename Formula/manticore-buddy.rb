@@ -10,7 +10,6 @@ class ManticoreBuddy < Formula
   sha256 "6a739276d2689c1f96942e4855d1ea076cfe63ed16391999961b90f5fb33e32b"
 
   depends_on "curl"
-  depends_on "oniguruma"
 
   def install
     (share/"manticore").mkpath
