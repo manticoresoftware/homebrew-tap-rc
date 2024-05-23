@@ -6,7 +6,7 @@ class ManticoreBuddy < Formula
   license "GPL-2.0"
 
   version "2.3.10_24052208.7612a4f"
-  url "https://repo.manticoresearch.com/repository/manticoresearch_macos/release_candidate/manticore-buddy_#{version}.tar.gz"
+  url "https://repo.manticoresearch.com/repository/manticoresearch_macos/release/manticore-buddy_#{version}.tar.gz"
   sha256 "6a739276d2689c1f96942e4855d1ea076cfe63ed16391999961b90f5fb33e32b"
 
   depends_on "curl"
