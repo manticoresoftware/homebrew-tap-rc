@@ -11,7 +11,7 @@ class ManticoreExecutor < Formula
   if arch.to_s == "x86_64" || arch.to_s == "amd64"
     version "1.1.6-24052206-c55bc2b"
     url "https://repo.manticoresearch.com/repository/manticoresearch_macos/release_candidate/manticore-executor_#{version}_macos_x86_64.tar.gz"
-    sha256 "db3822fcfccbdcda847e6a234b2ada0df83c23745bbbfe4e9522430e5a6246fe"
+    sha256 "4471bb83735a7f5e02aee786cccacfbf61c5d8b3c11ded238812bb49fdbdce32"
   else
     version "1.1.6-24052206-c55bc2b"
     url "https://repo.manticoresearch.com/repository/manticoresearch_macos/release_candidate/manticore-executor_#{version}_macos_arm64.tar.gz"
