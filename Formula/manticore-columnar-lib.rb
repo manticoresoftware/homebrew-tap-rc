@@ -7,7 +7,7 @@ class ManticoreColumnarLib < Formula
 
   arch = Hardware::CPU.arch
   version "2.3.0-24052206-88a01c3"
-  url "https://repo.manticoresearch.com/repository/manticoresearch_macos/release/manticore-columnar-lib-#{version}-osx11.6-#{arch}.tar.gz"
+  url "https://repo.manticoresearch.com/repository/manticoresearch_macos/release_candidate/manticore-columnar-lib-#{version}-osx11.6-#{arch}.tar.gz"
 
   if arch.to_s == "x86_64" || arch.to_s == "amd64"
     sha256 "4ced39a043b0239b2e4487fbc8e96f957ad6293f9db08566921fcbd1f424acb9"
