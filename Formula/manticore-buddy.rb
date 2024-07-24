@@ -1,6 +1,6 @@
 require "fileutils"
 
-class ManticoreBuddyRc < Formula
+class ManticoreBuddy < Formula
   desc "Manticore Search's sidecar which helps it with various tasks"
   homepage "https://github.com/manticoresoftware/manticoresearch-buddy"
   license "GPL-2.0"

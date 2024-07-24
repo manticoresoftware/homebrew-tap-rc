@@ -1,6 +1,6 @@
 require 'hardware'
 
-class ManticoresearchRc < Formula
+class Manticoresearch < Formula
   desc "Open source database for search"
   homepage "https://manticoresearch.com"
   license "GPL-3.0"
@@ -20,9 +20,9 @@ class ManticoresearchRc < Formula
   depends_on "openssl@1.1"
   depends_on "unixodbc"
   depends_on "zstd"
-  depends_on "manticoresoftware/tap/manticore-backup" => :recommended
-  depends_on "manticoresoftware/tap/manticore-buddy" => :recommended
-  depends_on "manticoresoftware/tap/manticore-icudata" => :recommended
+  depends_on "manticoresoftware/tap-rc/manticore-backup" => :recommended
+  depends_on "manticoresoftware/tap-rc/manticore-buddy" => :recommended
+  depends_on "manticoresoftware/tap-rc/manticore-icudata" => :recommended
 
   conflicts_with "sphinx", because: "Manticore Search is a fork of Sphinxsearch"
 

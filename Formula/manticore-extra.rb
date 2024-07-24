@@ -1,6 +1,6 @@
 require 'hardware'
 
-class ManticoreExtraRc < Formula
+class ManticoreExtra < Formula
   desc "Manticore meta package to install manticore-executor and manticore-columnar-lib dependencies"
   homepage "https://manticoresearch.com"
   # manticore-extra.tgz is an archive with just one file README, just to comply with Homebrew's requirements
@@ -15,9 +15,9 @@ class ManticoreExtraRc < Formula
     version "1.1.6-24052206-c55bc2b"
   end
 
-  depends_on "manticoresoftware/tap/manticore-columnar-lib"
-  depends_on "manticoresoftware/tap/manticore-executor"
-  depends_on "manticoresoftware/tap/manticore-galera"
+  depends_on "manticoresoftware/tap-rc/manticore-columnar-lib"
+  depends_on "manticoresoftware/tap-rc/manticore-executor"
+  depends_on "manticoresoftware/tap-rc/manticore-galera"
 
   def install
     File.open("manticore-extra", "w") do |file|

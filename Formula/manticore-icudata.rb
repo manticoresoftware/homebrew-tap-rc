@@ -1,4 +1,4 @@
-class ManticoreIcudataRc < Formula
+class ManticoreIcudata < Formula
   desc "Chinese segmentation data file for Manticore Search"
   homepage "https://unicode-org.github.io/icu/userguide/icu_data/"
   version "65l"
