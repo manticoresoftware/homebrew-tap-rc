@@ -1,7 +1,7 @@
 require 'hardware'
 require "fileutils"
 
-class ManticoreExecutor < Formula
+class ManticoreExecutorRc < Formula
   desc "Custom built PHP to run misc scripts of Manticore"
   homepage "https://github.com/manticoresoftware/executor"
   license "PHP-3.01"

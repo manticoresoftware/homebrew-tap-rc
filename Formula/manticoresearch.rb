@@ -1,6 +1,6 @@
 require 'hardware'
 
-class Manticoresearch < Formula
+class ManticoresearchRc < Formula
   desc "Open source database for search"
   homepage "https://manticoresearch.com"
   license "GPL-3.0"

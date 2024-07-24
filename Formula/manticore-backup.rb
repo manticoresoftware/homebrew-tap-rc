@@ -1,6 +1,6 @@
 require "fileutils"
 
-class ManticoreBackup < Formula
+class ManticoreBackupRc < Formula
   desc "Manticore Search backup tool"
   homepage "https://github.com/manticoresoftware/manticoresearch-backup"
   license "GPL-3.0"

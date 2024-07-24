@@ -1,4 +1,4 @@
-class ManticoreLanguagePacks < Formula
+class ManticoreLanguagePacksRc < Formula
   desc "Download and install Manticore morphology packs"
   homepage "https://manticoresearch.com/"
   url "https://manticoresearch.com"

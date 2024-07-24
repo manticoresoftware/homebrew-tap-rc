@@ -1,6 +1,6 @@
 require 'hardware'
 
-class ManticoreGalera < Formula
+class ManticoreGaleraRc < Formula
   desc "Galera Library (Manticore's fork)"
   homepage "https://github.com/manticoresoftware/galera"
   license "GPL-2.0"

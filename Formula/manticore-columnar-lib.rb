@@ -1,6 +1,6 @@
 require 'hardware'
 
-class ManticoreColumnarLib < Formula
+class ManticoreColumnarLibRc < Formula
   desc "Manticore Columnar Library"
   homepage "https://github.com/manticoresoftware/columnar/"
   license "Apache-2.0"
